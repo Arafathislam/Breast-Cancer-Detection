@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Cancer Prediction</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="login">
+
+    <!-- Get input for predict the cancer -->
+    <center>
+      <form action="{{ url_for('predict')}}" method="post">
+        <h1><b>Enter the value of cell features</b></h1>
+        <div>
+        <input type="text" name="mean_radius" placeholder="mean radius" required="required" />
+        <input type="text" name="mean_texture" placeholder="mean texture" required="required" />
+        <input type="text" name="mean_perimeter" placeholder="mean perimeter" required="required" />
+        <input type="text" name="mean_area" placeholder="mean area" required="required" />
+        <input type="text" name="mean_smoothness" placeholder="mean smoothness" required="required" />
+      </div>
+      <div>
+        <input type="text" name="mean_compactness" placeholder="mean compactness" required="required" />
+        <input type="text" name="mean_concavity" placeholder="mean concavity" required="required" />
+        <input type="text" name="mean_concave_points" placeholder="mean concave points" required="required" />
+        <input type="text" name="mean_symmetry" placeholder="mean symmetry" required="required" />
+        <input type="text" name="mean_fractal_dimension" placeholder="mean fractal dimension" required="required" />
+      </div>
+    <div>
+        <input type="text" name="radius_error" placeholder="radius error" required="required" />
+        <input type="text" name="texture_error" placeholder="texture error" required="required" />
+        <input type="text" name="perimeter_error" placeholder="perimeter error" required="required" />
+        <input type="text" name="area_error" placeholder="area error " required="required" />
+        <input type="text" name="smoothness_error" placeholder="smoothness error" required="required" />
+      </div>
+      <div>
+        <input type="text" name="compactness_error" placeholder="compactness error" required="required" />
+        <input type="text" name="concavity_error" placeholder="concavity error" required="required" />
+        <input type="text" name="concave_points_error" placeholder="concave points error" required="required" />
+        <input type="text" name="symmetry_error" placeholder="symmetry error" required="required" />
+        <input type="text" name="fractal_dimension_error" placeholder="fractal dimension error" required="required" />
+      </div>
+        <div>
+        <input type="text" name="worst_radius" placeholder="worst radius" required="required" />
+        <input type="text" name="worst_texture" placeholder="worst texture" required="required" />
+        <input type="text" name="worst_perimeter" placeholder="worst perimeter" required="required" />
+        <input type="text" name="worst_area" placeholder="worst area" required="required" />
+        <input type="text" name="worst_smoothness" placeholder="worst smoothness" required="required" />
+      </div>
+      <div>
+        <input type="text" name="worst_compactness" placeholder="worst compactness" required="required" />
+        <input type="text" name="worst_concavity" placeholder="worst concavity" required="required" />
+        <input type="text" name="worst_concave_points" placeholder="worst concave points" required="required" />
+        <input type="text" name="worst_symmetry" placeholder="'worst symmetry" required="required" />
+        <input type="text" name="worst_fractal_dimension" placeholder="worst fractal dimension" required="required" />
+      </div>
+        <br>
+
+        <button type="submit" class="btn btn-outline-primary">Predict Cancer</button>
+
+      </form>
+    </center>
+
+    <!-- Show predicted output using ML model -->
+    <div>
+      <center>
+        <h1>{{ result}}</h1>
+      </center>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
